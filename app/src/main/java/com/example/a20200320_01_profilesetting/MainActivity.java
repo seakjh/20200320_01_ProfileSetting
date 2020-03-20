@@ -10,6 +10,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 
+import com.bumptech.glide.Glide;
 import com.example.a20200320_01_profilesetting.databinding.ActivityMainBinding;
 
 public class MainActivity extends BaseActivity {
@@ -59,6 +60,8 @@ public class MainActivity extends BaseActivity {
             if (resultCode == RESULT_OK) {
                 if (data.getData() != null) {
                     Log.d("사진 가져오기", data.getData().toString());
+
+                    Glide.with(mContext).load(data.getData()).into(binding.proflieImg);
                 }
             }
         }
